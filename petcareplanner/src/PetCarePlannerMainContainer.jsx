@@ -206,7 +206,8 @@ function PetCarePlannerMainContainer({ children }) {
           borderRadius: "8px"
         }}
       >
-        {"App State Demo (initial scaffolding):\n"}
+        {"App State Demo (initial scaffolding):
+"}
         {JSON.stringify(state, null, 2)}
       </pre>
     </div>
