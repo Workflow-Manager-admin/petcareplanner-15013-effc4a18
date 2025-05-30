@@ -1,10 +1,32 @@
 :root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
+  /* PetCarePlanner Brand Colors */
+  --primary: #4caf50;
+  --secondary: #ffc107;
+  --accent: #2196f3;
+
+  /* Classic palette for reference */
+  --kavia-orange: #e87a41;
+  --kavia-dark: #16191d;
+  --text-color: #f5f6fa;
+  --text-secondary: rgba(255,255,255,0.72);
+  --border-color: rgba(255,255,255,0.10);
+
+  /* App-wide elevation, shape, shadow variables */
+  --card-radius: 16px;
+  --card-shadow: 0 6px 28px 0 rgba(28,38,54,0.18);
+  --button-radius: 6px;
+  --fab-shadow: 0 3px 15px 0 rgba(0,0,0,0.22);
+
+  /* Dark theme backgrounds */
+  --bg-main: #181c20;
+  --bg-elevated: #22252b;
+  --bg-navbar: #101418;
+  --bg-card: #242730;
+  --bg-input: #1e2228;
+
+  --focus-ring: 0 0 0 2px var(--accent);
 }
+
 
 body {
   margin: 0;
