@@ -86,54 +86,188 @@ body {
   flex-direction: column;
 }
 
-.hero {
-  padding-top: 120px;
-  padding-bottom: 64px;
-  text-align: center;
+/* Section styling for main areas */
+.section,
+.dashboard-section,
+.health-log-section,
+.pet-profiles-section,
+.task-scheduler-section {
+  background: var(--bg-card);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  padding: 32px 24px 28px 24px;
+  margin: 32px 0 0 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 24px;
+  min-width: 0;
+  min-height: 140px;
+  gap: 20px;
+  border: 1px solid var(--border-color);
+}
+
+.card {
+  background: var(--bg-elevated);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  color: var(--text-color);
+  padding: 22px 20px;
+  border: 1px solid var(--border-color);
+}
+
+.card-header {
+  font-size: 1.35em;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--primary);
 }
 
 .subtitle {
-  color: var(--kavia-orange);
+  color: var(--secondary);
   font-weight: 500;
-  font-size: 1.1rem;
+  font-size: 1.13rem;
 }
 
 .title {
-  font-size: 3.5rem;
-  font-weight: 600;
+  font-size: 2.5rem;
+  font-weight: 700;
   line-height: 1.2;
-  margin: 0;
+  margin: 0 0 10px 0;
 }
 
 .description {
-  font-size: 1.1rem;
-  line-height: 1.5;
+  font-size: 1.13rem;
+  line-height: 1.52;
   color: var(--text-secondary);
   max-width: 600px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
+/* Button styles */
 .btn {
-  background-color: var(--kavia-orange);
-  color: white;
+  background: linear-gradient(98deg, var(--primary) 90%, var(--accent) 110%);
+  color: #fff;
   border: none;
-  border-radius: 4px;
-  padding: 10px 20px;
-  font-size: 1rem;
-  font-weight: 500;
+  border-radius: var(--button-radius);
+  padding: 12px 26px;
+  font-size: 1.08rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background 0.2s, box-shadow 0.2s;
+  outline: none;
+  box-shadow: 0 2px 8px 0 rgba(76,175,80,0.12);
 }
-
-.btn:hover {
-  background-color: #FF8B4D;
+.btn:hover, .btn:focus-visible {
+  background: linear-gradient(98deg, var(--primary) 85%, var(--accent) 120%);
+  box-shadow: 0 4px 14px 0 rgba(33,150,243,0.19);
+}
+.btn:active {
+  background: linear-gradient(98deg, var(--primary) 98%, var(--accent) 120%);
 }
 
 .btn-large {
-  padding: 12px 24px;
-  font-size: 1.1rem;
+  padding: 15px 32px;
+  font-size: 1.17rem;
+}
+
+/* Floating Action Button (FAB) */
+.fab-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 32px;
+  z-index: 120;
+  background-color: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  box-shadow: var(--fab-shadow);
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.45em;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.fab-btn:hover, .fab-btn:focus-visible {
+  background-color: var(--accent);
+  box-shadow: 0 7px 24px 0 rgba(33,150,243,0.31);
+}
+.fab-btn:active {
+  background-color: var(--secondary);
+}
+
+.notification-bar {
+  min-width: 210px;
+  max-width: 330px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: flex-end;
+  background: rgba(33,150,243,0.10);
+  border-radius: 7px;
+  font-size: 1.03em;
+  padding: 7px 16px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border: 1px solid var(--border-color);
+  color: var(--secondary);
+  box-shadow: 0 2px 8px 0 rgba(76,175,80,0.05);
+  overflow: hidden;
+}
+
+/* Simple Card for use throughout */
+.simple-card,
+.dashboard-placeholder,
+.health-log-placeholder,
+.pet-profiles-placeholder,
+.task-scheduler-placeholder {
+  background: var(--bg-elevated);
+  border-radius: var(--card-radius);
+  padding: 16px 18px;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+input, textarea, select {
+  background: var(--bg-input);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 7px;
+  padding: 8px 12px;
+  font-size: 1em;
+  transition: border-color 0.19s;
+}
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: var(--focus-ring);
+}
+
+/* Accessibility: focus ring for nav/buttons/cards */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Utility: visually hide but accessible */
+.sr-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px; width: 1px;
+  margin: -1px; overflow: hidden; padding: 0; position: absolute;
+}
+
+/* Responsive improvements */
+@media (max-width: 900px) {
+  .container { max-width: 100vw; padding: 0 10px; }
+  .section, .dashboard-section, .health-log-section, .pet-profiles-section, .task-scheduler-section {
+    padding: 18px 8px 14px 8px;
+    margin: 22px 0 0 0;
+  }
+  .dashboard-placeholder, .health-log-placeholder, .pet-profiles-placeholder, .task-scheduler-placeholder {
+    padding: 10px 7px;
+  }
 }
