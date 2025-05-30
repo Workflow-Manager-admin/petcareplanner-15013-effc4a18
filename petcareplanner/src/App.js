@@ -1,33 +1,26 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { PetCarePlannerMainContainer } from "./PetCarePlannerMainContainer";
 
 function App() {
   return (
     <div className="app">
+      {/* Top navbar and (future) Notification bar */}
       <nav className="navbar">
         <div className="container">
-          <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+          <div style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
             <div className="logo">
-              <span className="logo-symbol">*</span> KAVIA AI
+              <span className="logo-symbol">*</span> PetCarePlanner
             </div>
-            <button className="btn">Template Button</button>
+            {/* Placeholder for Floating Action Button or navigation */}
+            <button className="btn" aria-label="Add">+</button>
           </div>
         </div>
       </nav>
-
+      {/* Main Container for PetCarePlanner App state and UI */}
       <main>
-        <div className="container">
-          <div className="hero">
-            <div className="subtitle">AI Workflow Manager Template</div>
-            
-            <h1 className="title">petcareplanner</h1>
-            
-            <div className="description">
-              Start building your application.
-            </div>
-            
-            <button className="btn btn-large">Button</button>
-          </div>
+        <div className="container" style={{ marginTop: 96 }}>
+          <PetCarePlannerMainContainer />
         </div>
       </main>
     </div>
