@@ -197,12 +197,16 @@ function PetCarePlannerMainContainer({ children }) {
   return (
     <div className="petcareplanner-main">
       {/* Placeholder - integration of actual components/navigation will be done in future */}
-      <pre style={{
-        background: "#222", color: "#fff",
-        margin: "32px", padding: "16px", borderRadius: "8px"
-      }}>
-        App State Demo (initial scaffolding): {"
-"}
+      <pre
+        style={{
+          background: "#222",
+          color: "#fff",
+          margin: "32px",
+          padding: "16px",
+          borderRadius: "8px"
+        }}
+      >
+        {"App State Demo (initial scaffolding):\n"}
         {JSON.stringify(state, null, 2)}
       </pre>
     </div>
