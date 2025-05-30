@@ -3,13 +3,23 @@ import "./App.css";
 import { PetCarePlannerMainContainer } from "./PetCarePlannerMainContainer";
 
 /**
- * Main App wrapper for PetCarePlanner with dark theme, responsive layout,
- * primary navigation bar, notification area, and floating action button.
+ * Main App layout for PetCarePlanner with dark theme, brand color palette,
+ * responsive design, top bar with notification area, and floating action button.
  */
+// PUBLIC_INTERFACE
 function App() {
   return (
-    <div className="app" style={{ background: "#181c20", minHeight: "100vh" }}>
-      {/* Top navigation bar with logo/title and notifications */}
+    <div
+      className="app"
+      style={{
+        minHeight: "100vh",
+        background: "var(--kavia-dark, #181c20)",
+        color: "var(--text-color, #fff)",
+        display: "flex",
+        flexDirection: "column"
+      }}
+    >
+      {/* --- TOP BAR --- */}
       <nav
         className="navbar"
         style={{
@@ -17,8 +27,13 @@ function App() {
           borderBottom: "1px solid var(--border-color)",
           position: "fixed",
           top: 0,
-          width: "100%",
+          left: 0,
+          width: "100vw",
+          padding: 0,
           zIndex: 105,
+          height: 68,
+          display: "flex",
+          alignItems: "center"
         }}
         aria-label="Main navigation"
       >
@@ -27,58 +42,85 @@ function App() {
           style={{
             maxWidth: 1100,
             margin: "0 auto",
+            width: "100%",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            height: 64,
+            minHeight: 58,
+            padding: "0 14px"
           }}
         >
-          <div className="logo" style={{ fontWeight: 700, fontSize: "1.35rem", display: "flex", alignItems: "center" }}>
-            <span className="logo-symbol" style={{ color: "#4CAF50", fontWeight: 900, fontSize: "1.7em", marginRight: 8 }} aria-label="PetCarePlanner">🐾</span>
-            PetCarePlanner
+          {/* App Title & Logo */}
+          <div
+            className="logo"
+            style={{
+              fontWeight: 800,
+              fontSize: "1.5rem",
+              display: "flex",
+              alignItems: "center",
+              gap: 10,
+              color: "#4CAF50"
+            }}
+          >
+            <span
+              className="logo-symbol"
+              style={{
+                color: "#4CAF50",
+                fontWeight: 900,
+                fontSize: "1.75em",
+                marginRight: 8
+              }}
+              aria-label="PetCarePlanner"
+            >
+              🐾
+            </span>
+            <span style={{ color: "var(--text-color, #fff)", fontWeight: 700, fontSize: "1.1em" }}>
+              PetCarePlanner
+            </span>
           </div>
-          {/* Notification bar area (placeholder for reminders & alerts) */}
+          {/* Notification Bar Placeholder */}
           <div
             style={{
-              minWidth: 280,
+              minWidth: 210,
+              maxWidth: 330,
               display: "flex",
               alignItems: "center",
               gap: 12,
-              justifyContent: "flex-end",
+              justifyContent: "flex-end"
             }}
           >
-            {/* Placeholder for dynamic notifications/reminders */}
+            {/* Notification summary/placeholder */}
             <div
               style={{
                 color: "#FFC107",
                 background: "rgba(33,150,243,0.10)",
                 borderRadius: 6,
-                fontSize: "0.97em",
+                fontSize: "1em",
                 padding: "6px 14px",
-                maxWidth: 230,
                 overflow: "hidden",
                 textOverflow: "ellipsis",
                 whiteSpace: "nowrap",
                 border: "1px solid var(--border-color)",
+                minWidth: 0
               }}
               aria-live="polite"
               tabIndex={0}
               aria-label="Notifications and reminders"
             >
-              {/* Will be replaced by notification summary */}
-              <span style={{ opacity: 0.82 }}>No new reminders</span>
+              {/* Will be replaced with dynamic reminders in future */}
+              <span style={{ opacity: 0.83 }}>No new reminders</span>
             </div>
           </div>
         </div>
       </nav>
 
-      {/* Main content view; account for navbar height with marginTop */}
+      {/* --- MAIN CONTENT --- */}
       <main
         style={{
-          marginTop: 80,
-          width: "100%",
+          marginTop: 76,
           flex: 1,
-          minHeight: "calc(100vh - 80px)",
+          width: "100vw",
+          minHeight: "calc(100vh - 76px)",
           display: "flex",
           justifyContent: "center",
           boxSizing: "border-box",
@@ -88,20 +130,22 @@ function App() {
           className="container"
           style={{
             width: "100%",
-            maxWidth: 950,
+            maxWidth: 960,
             padding: "0 18px 36px 18px",
-            minHeight: "50vh",
+            minHeight: "60vh",
             position: "relative",
-            background: "transparent",
+            background: "transparent"
           }}
         >
-          {/* Place the app's main container/component here */}
+          {/* --- MAIN PLANNER COMPONENT (handles routing, dashboard, etc.) --- */}
           <PetCarePlannerMainContainer />
-          {/* Dashboard, tasks, and navigation features will be routed/integrated inside PetCarePlannerMainContainer */}
+
+          {/* --- DASHBOARD placeholder, to be integrated inside main container in future --- */}
+          {/* <DashboardMainSection /> (placeholder for later) */}
         </div>
       </main>
 
-      {/* Floating Action Button (FAB) for quick access to adding pet/task */}
+      {/* --- FLOATING ACTION BUTTON (FAB) --- */}
       <button
         className="fab-btn"
         aria-label="Quick Add"
@@ -114,21 +158,21 @@ function App() {
           color: "#fff",
           border: "none",
           borderRadius: "50%",
-          boxShadow: "0 3px 15px 0 rgba(0,0,0,0.21)",
+          boxShadow: "0 3px 15px 0 rgba(0,0,0,0.23)",
           width: 64,
           height: 64,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          fontSize: "2.35em",
+          fontSize: "2.5em",
           fontWeight: 700,
           cursor: "pointer",
           outline: "none",
-          transition: "background 0.2s",
+          transition: "background 0.2s, box-shadow 0.2s"
         }}
         tabIndex={0}
       >
-        +
+        <span style={{ marginTop: -2, color: "white", fontSize: "1em" }}>+</span>
       </button>
     </div>
   );
